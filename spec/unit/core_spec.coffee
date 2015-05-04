@@ -255,6 +255,9 @@ describe 'Core', ->
             it 'should provide a way to set logging levels', ->
                 Base.log.setLevel.should.be.a('function')
 
+            it 'should provide a way to set the configuration', ->
+                Base.log.setConfig.should.be.a('function')
+
             it 'should be available within sandboxes', ->
                 sb = core.createSandbox 'test'
                 sb.should.have.property 'log'

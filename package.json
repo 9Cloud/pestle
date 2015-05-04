@@ -17,7 +17,8 @@
     ]
   },
   "dependencies": {
-    "coffeeify": "~0.7.0"
+    "coffeeify": "~0.7.0",
+    "raven-js": "^1.1.18"
   },
   "devDependencies": {
     "browser-sync": "^1.6.5",
