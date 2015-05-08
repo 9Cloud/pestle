@@ -96,7 +96,7 @@
 
         setComponentConfig: (comp, config) ->
             unless @started
-    
+
                 unless comp and Base.util.isString comp
                     msg = "[setComponentConfig method] 1st param should be a string, you're passing:" + typeof config
                     Base.log.error(msg)
@@ -122,8 +122,8 @@
 
         start: (selector = '') ->
 
-            # Set the logging level for the app
-            Base.log.setLevel(@config.debug.logLevel)
+            # Set the logging configuration for the app
+            Base.log.setConfig(@config.debug)
 
             # this will let us initialize components at a later stage
             if @started and selector isnt ''
