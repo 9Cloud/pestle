@@ -39,7 +39,7 @@ describe 'VersionChecker', ->
                                                                   # of the loaded lib
             ,
                 "name": "Underscore"
-                "required": "1.7.0" # required version
+                "required": "1.8.2" # required version
                 "obj": _ # global object
                 "version": if _ then _.VERSION else 0
         ]
