@@ -158,10 +158,10 @@
 
                     # generates an unique guid for each module
                     prefix = m.name + "_"
-                    m.options.guid = prefix + Base.util.keys(Component.initializedComponents)
-                        .filter (component)->
+                    m.options.guid = prefix + (Base.util.keys(Component.initializedComponents)
+                        .filter (component) ->
                             return Base.util.contains(component, prefix)
-                        .length + 1
+                        .length + 1)
 
                     m.options.__defaults__ = app.config.component[m.name]
 
