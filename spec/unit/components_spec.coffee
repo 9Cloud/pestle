@@ -72,7 +72,7 @@ describe 'Components Extension', ->
 
                     afterAppStarted: sinon.spy()
 
-                settings = 
+                settings =
                     component:
                         'dummy':
                             prop1: 'val1'
@@ -125,6 +125,16 @@ describe 'Components Extension', ->
                     $(m.options.el).data('platform-component').should.be.not.equal 'dummy2'
                     $(m.options.el).data('platform-component').should.be.not.equal 'dummy3'
 
+            it 'should ensure that all components have unique ids', ->
+                ids = _.keys initializedComponents.all
+                _.each initializedComponents.all, (m, componentId) ->
+                    _.filter ids, (id)-> id == componentId
+                    .should.have.length(1)
+
+            it.skip 'should ensure that count ids starts from 1 for each component from different modules ', ->
+                _.each initializedComponents.all, (m, componentId) ->
+                    componentId.should.be.equal $(m.options.el).data('platform-testid')
+
             it 'should provision the component with default options (if any)', ->
                 _.each initializedComponents.all, (m, i) ->
                     if $(m.options.el).data('platform-component') == "dummy"
@@ -174,7 +184,7 @@ describe 'Components Extension', ->
                         m.options.object.should.be.an 'object'
                         m.options.string.should.be.an 'string'
                         # the 3 passed + the one automatically added (el)
-                        m.options.length.should.be.equal 4
+                        m.options.length.should.be.equal 5
 
                     else if $(m.options.el).data('platform-component') == "dummy2"
                         $(m.options.el).should.have.data('platformObject2')
@@ -182,13 +192,13 @@ describe 'Components Extension', ->
                         m.options.object2.should.be.an 'object'
                         m.options.string2.should.be.an 'string'
                         # the 2 passed + the one automatically added (el)
-                        m.options.length.should.be.equal 3
+                        m.options.length.should.be.equal 4
 
                     else if $(m.options.el).data('platform-component') == "dummy3"
                         $(m.options.el).should.have.data('platformDataset')
                         m.options.dataset.should.be.an 'array'
                         # the 1 passed + the one automatically added (el)
-                        m.options.length.should.be.equal 2
+                        m.options.length.should.be.equal 3
 
             it 'should give each component an unique sandbox', ->
 
