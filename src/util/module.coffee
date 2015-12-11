@@ -10,7 +10,8 @@
 )(window, (root, Module) ->
 
     Base = require('../base.coffee')
-
+    $ = require('jquery')
+    
     # this will serve as the base class for a Module
     class Module
         constructor: (opt) ->

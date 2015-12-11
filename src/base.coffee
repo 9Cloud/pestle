@@ -13,7 +13,7 @@
     # Array that holds hard dependencies for the SDK
     dependencies = [
             "name": "jQuery"
-            "required": "1.10" # required version
+            "required": "1.11.1" # required version
             "obj": root.$ # global object
             "version": if root.$ then root.$.fn.jquery else 0 # gives the version number
                                                               # of the loaded lib

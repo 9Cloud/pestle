@@ -6,6 +6,7 @@
 
     Base   = require('./../base.coffee')
     Module = require('./../util/module.coffee')
+    $ = require('jquery')
 
     class Component
 
