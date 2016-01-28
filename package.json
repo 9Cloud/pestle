@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git://github.com/natgeo/pestle.git"
   },
-  "main": "build/pestle.js",
+  "main": "dist/pestle.js",
   "author": {
     "name": "Francisco Ramini",
     "email": "framini@gmail.com"
@@ -17,7 +17,8 @@
     ]
   },
   "scripts": {
-    "prepublish": "gulp build"
+    "clean": "rimraf dist build",
+    "prepublish": "npm run-script clean && gulp build -- dist"
   },
   "peerDependencies": {
     "lodash": "4.x",
@@ -65,6 +66,7 @@
     "pretty-hrtime": "~0.2.1",
     "raven-js": "^1.1.18",
     "require-dir": "^0.1.0",
+    "rimraf": "^2.5.1",
     "sinon": "^1.17.3",
     "verge": "^1.9.1",
     "vinyl-source-stream": "^1.0.0",
