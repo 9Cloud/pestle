@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git://github.com/natgeo/pestle.git"
   },
-  "main": "dist/pestle.js",
+  "main": "build/pestle.js",
   "author": {
     "name": "Francisco Ramini",
     "email": "framini@gmail.com"
@@ -15,6 +15,9 @@
     "transform": [
       "coffeeify"
     ]
+  },
+  "scripts": {
+    "prepublish": "gulp build"
   },
   "peerDependencies": {
     "lodash": "4.x",
