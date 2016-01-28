@@ -1,10 +1,10 @@
 {
   "name": "pestle",
-  "version": "1.0.0",
-  "homepage": "https://github.com/framini/pestle",
+  "version": "1.0.1",
+  "homepage": "https://github.com/nagteo/pestle",
   "repository": {
     "type": "git",
-    "url": "git://github.com/framini/pestle.git"
+    "url": "git://github.com/natgeo/pestle.git"
   },
   "main": "dist/pestle.js",
   "author": {
