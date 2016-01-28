@@ -8,6 +8,7 @@ var source         = require('vinyl-source-stream');
 var generalConfig  = require('../config/general');
 var config         = require('../config/browserify');
 var coffeelint     = require('gulp-coffeelint');
+var exorcist       = require('exorcist');
 
 gulp.task('browserify', ['testing'], function(callback) {
 
@@ -22,6 +23,7 @@ gulp.task('browserify', ['testing'], function(callback) {
       entries: bundleConfig.entries,
       // Add file extentions to make optional in require calls
       extensions: config.extensions,
+
       // Enable/disable source maps
       debug: config.debug,
 
@@ -33,9 +35,13 @@ gulp.task('browserify', ['testing'], function(callback) {
       bundleLogger.start(bundleConfig.outputName);
 
       return bundler
+        // Prevent file from being loaded into the current bundle
+        .external(bundleConfig.external || '')
         .bundle()
         // Report compile errors
         .on('error', handleErrors)
+        // extract sourcemap to a file
+        .pipe(exorcist(bundleConfig.dest + '/' + bundleConfig.outputName + '.map'))
         // Use vinyl-source-stream to make the
         // stream gulp compatible. Specifiy the
         // desired output filename here.
@@ -56,13 +62,13 @@ gulp.task('browserify', ['testing'], function(callback) {
       bundler.on('update', function() {
           gulp.src(generalConfig.paths.src + '/*.coffee')
               .pipe(coffeelint(generalConfig.files.coffeelint))
-              .pipe(coffeelint.reporter())
+              .pipe(coffeelint.reporter());
       });
     }
 
     var reportFinished = function() {
       // Log when bundling completes
-      bundleLogger.end(bundleConfig.outputName)
+      bundleLogger.end(bundleConfig.outputName);
 
       if(bundleQueue) {
         bundleQueue--;

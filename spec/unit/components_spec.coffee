@@ -1,6 +1,7 @@
 Component = require '../../src/extension/components.coffee'
 Core = require '../../src/core.coffee'
 Module = require('../../src/util/module.coffee')
+_ = require 'lodash'
 
 describe 'Components Extension', ->
 
@@ -72,7 +73,7 @@ describe 'Components Extension', ->
 
                     afterAppStarted: sinon.spy()
 
-                settings = 
+                settings =
                     component:
                         'dummy':
                             prop1: 'val1'

@@ -1,4 +1,4 @@
-var generalConfig = require('./general')
+var generalConfig = require('./general');
 
 module.exports = function(config) {
     config.set({
@@ -14,8 +14,8 @@ module.exports = function(config) {
 
         frameworks: [
             'browserify',
-            'mocha', 
-            'mocha-debug', 
+            'mocha',
+            'mocha-debug',
             'sinon-chai',
             'fixture'
         ],
@@ -30,8 +30,6 @@ module.exports = function(config) {
             },
             'node_modules/jquery/dist/jquery.js',
             'node_modules/chai-jquery/chai-jquery.js',
-            'node_modules/underscore/underscore.js',
-
             'spec/**/*_spec.coffee'
         ],
 
@@ -44,5 +42,5 @@ module.exports = function(config) {
         browserify: {
           debug: true
         }
-    })
-}
+    });
+};
