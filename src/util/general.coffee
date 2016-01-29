@@ -3,6 +3,27 @@
     module.exports = factory(root, {})
 
 )(window, (root, Utils) ->
+    lodashModules =
+        isFunction: require 'lodash/isFunction'
+        isObject: require 'lodash/isObject'
+        isEmpty: require 'lodash/isEmpty'
+        isEqual: require 'lodash/isEqual'
+        isArray: require 'lodash/isArray'
+        isString: require 'lodash/isString'
+        includes: require 'lodash/includes'
+        extend: require 'lodash/extend'
+        keys: require 'lodash/keys'
+        clone: require 'lodash/clone'
+        defaults: require 'lodash/defaults'
+        map: require 'lodash/map'
+        each: require 'lodash/each'
+        bindAll: require 'lodash/bindAll'
+        debounce: require 'lodash/debounce'
+        capitalize: require 'lodash/capitalize'
+        filter: require 'lodash/filter'
+        where: require 'lodash/filter' # lodash 4 removed 'where' in favor filter
+        has: require 'lodash/has'
+        result: require 'lodash/result'
 
     # Expose Utils API
     Utils =
@@ -51,6 +72,9 @@
             capitalize: (str) ->
                 str = (if not str? then "" else String(str))
                 str.charAt(0).toUpperCase() + str.slice(1)
+
+
+    lodashModules.extend Utils, lodashModules
 
     return Utils
 )

@@ -39,7 +39,7 @@
 
             # Lets throw an error if we try to initialize the same extension twices
             Base.util.each @_extensions, (xt, i) ->
-                if _.isEqual xt, ext
+                if Base.util.isEqual xt, ext
                     throw new Error("Extension: " + ext.name + " already exists.")
 
             @_extensions.push(ext)

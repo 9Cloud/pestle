@@ -161,7 +161,7 @@
                     prefix = m.name + "_"
                     m.options.guid = prefix + (Base.util.keys(Component.initializedComponents)
                         .filter (component) ->
-                            return Base.util.contains(component, prefix)
+                            return Base.util.includes(component, prefix)
                         .length + 1)
 
                     m.options.__defaults__ = app.config.component[m.name]
