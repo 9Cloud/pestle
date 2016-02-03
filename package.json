@@ -1,12 +1,12 @@
 {
   "name": "@natgeo/pestle",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "homepage": "https://github.com/nagteo/pestle",
   "repository": {
     "type": "git",
     "url": "git://github.com/natgeo/pestle.git"
   },
-  "main": "dist/pestle.js",
+  "main": "build/pestle.js",
   "author": "Francisco Ramini <framini@gmail.com>",
   "browserify": {
     "transform": [
